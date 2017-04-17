@@ -16,7 +16,31 @@ describe Enumerando do
         .must_equal false
     end
 
-    #it 'returns results when all elements have integer as common method ' do
+    it 'evaluates custom objects' do
+      class Country
+        def initialize(name)
+          @name = name
+        end
+
+        def poor?
+          false
+        end
+
+        def wealthy?
+          true
+        end
+      end
+
+      countries = [Country.new('US'), Country.new('UK'), Country.new('BRZ')]
+
+      value(countries.all_wealthy?)
+        .must_equal true
+
+      value(countries.none_poor?)
+        .must_equal true
+    end
+
+    #it 'returns results when all elements have integer as common method' do
       #value([1, 2.5, 4, 1.4].select_integer)
         #.must_equal [1, 4]
     #end
