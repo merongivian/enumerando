@@ -32,7 +32,7 @@ end
 class Enumerando::MethodParser
   def initialize(method_name)
     @method_name = method_name
-    @enumerable, @boolean = method_name.split('_')
+    @enumerable, @boolean_method = method_name.split('_')
   end
 
   def enumerable_method
@@ -40,7 +40,7 @@ class Enumerando::MethodParser
   end
 
   def boolean_method
-    @method_name.end_with?('?') ? @boolean : append_question_mark(@boolean)
+    @method_name.end_with?('?') ? @boolean_method : append_question_mark(@boolean_method)
   end
 
   private
