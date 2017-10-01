@@ -40,11 +40,6 @@ describe Enumerando do
         .must_equal true
     end
 
-    #it 'returns results when all elements have integer as common method' do
-      #value([1, 2.5, 4, 1.4].select_integer)
-        #.must_equal [1, 4]
-    #end
-
     it 'raises an undefined method error if an invalid method is used' do
       ->{ ['one', 'two', 'three'].select_integer }.must_raise NoMethodError
     end
